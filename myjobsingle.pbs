@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N CommoncrawlBimmer
+#PBS -q bigdata
+#PBS -l select=1:ncpus=2:mem=4gb 
+#PBS -l walltime=50:00:00
+module purge all
+module add anaconda/2.5.0
+cd $PBS_O_WORKDIR
+
+#python commoncrawlerTimestampJobarray.py ${PBS_ARRAY_INDEX}
+python commoncrawlerTimestampJobarray.py $JOBID > /home/yuhengd/data/commoncrawl/python/commoncrawlbimmerOE/$JOBID.out
